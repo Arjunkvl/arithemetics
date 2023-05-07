@@ -26,13 +26,16 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: EdgeInsets.all(
                         MediaQuery.of(context).size.width * 0.10),
-                    child: const Text(
-                      'Enter Numbers',
-                      style: TextStyle(
-                          color: Color(0xff5B4F47),
-                          fontFamily: 'mono',
-                          fontSize: 50,
-                          fontWeight: FontWeight.w500),
+                    child: const FittedBox(
+                      child: Text(
+                        'Enter Numbers',
+                        softWrap: false,
+                        style: TextStyle(
+                            color: Color(0xff5B4F47),
+                            fontFamily: 'mono',
+                            fontSize: 50,
+                            fontWeight: FontWeight.w500),
+                      ),
                     ),
                   ),
                   Padding(
