@@ -48,17 +48,20 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.26,
-                            child: const TextField(
+                            child: TextField(
                               textAlign: TextAlign.center,
                               maxLength: 1,
-                              maxLengthEnforcement: MaxLengthEnforcement.none,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
                               showCursor: false,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 50,
                                   fontFamily: 'mono',
                                   fontWeight: FontWeight.w900,
                                   color: Color(0xff5B4F47)),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                           width: 5, color: Color(0xffffffff)),
@@ -73,17 +76,20 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.26,
-                            child: const TextField(
+                            child: TextField(
                               textAlign: TextAlign.center,
                               maxLength: 1,
-                              maxLengthEnforcement: MaxLengthEnforcement.none,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
                               showCursor: false,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 50,
                                   fontFamily: 'mono',
                                   fontWeight: FontWeight.w900,
                                   color: Color(0xff5B4F47)),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                           width: 5, color: Color(0xffffffff)),
@@ -98,17 +104,20 @@ class _HomePageState extends State<HomePage> {
                           ),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.26,
-                            child: const TextField(
+                            child: TextField(
                               textAlign: TextAlign.center,
                               maxLength: 1,
-                              maxLengthEnforcement: MaxLengthEnforcement.none,
+                              inputFormatters: [
+                                LengthLimitingTextInputFormatter(1),
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
                               showCursor: false,
-                              style: TextStyle(
+                              style: const TextStyle(
                                   fontSize: 50,
                                   fontFamily: 'mono',
                                   fontWeight: FontWeight.w900,
                                   color: Color(0xff5B4F47)),
-                              decoration: InputDecoration(
+                              decoration: const InputDecoration(
                                   focusedBorder: OutlineInputBorder(
                                       borderSide: BorderSide(
                                           width: 5, color: Color(0xffffffff)),
