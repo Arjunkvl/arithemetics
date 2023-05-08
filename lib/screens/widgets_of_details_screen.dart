@@ -9,29 +9,35 @@ class CustomText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding:
-          EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.02),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            label,
-            textAlign: TextAlign.center,
-            style: const TextStyle(
-              fontWeight: FontWeight.bold,
-              fontFamily: 'mono',
-              color: Color(0xff5B4F47),
-              fontSize: 30,
+          EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.03),
+      child: Center(
+        child: Column(
+          children: [
+            Text(
+              label,
+              textAlign: TextAlign.center,
+              style: const TextStyle(
+                fontWeight: FontWeight.bold,
+                fontFamily: 'mono',
+                color: Color(0xff5B4F47),
+                fontSize: 30,
+              ),
             ),
-          ),
-          Text(
-            eq,
-            style: const TextStyle(
-              fontFamily: 'mono',
-              color: Color(0xff5B4F47),
-              fontSize: 40,
-            ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.only(
+                  right: MediaQuery.of(context).size.width * 0.05),
+              child: Text(
+                eq,
+                textAlign: TextAlign.end,
+                softWrap: false,
+                style: const TextStyle(
+                  color: Color(0xff5B4F47),
+                  fontSize: 30,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
