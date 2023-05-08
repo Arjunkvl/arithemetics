@@ -82,7 +82,8 @@ class _HomePageState extends State<HomePage> {
                       ),
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => const DetailsScreen(),
+                          builder: (context) =>
+                              DetailsScreen(controller: controller),
                         ));
                       },
                       color: const Color(0xff745E4D),
