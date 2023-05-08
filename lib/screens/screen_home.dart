@@ -24,10 +24,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Color(0xffF8F7F4),
+      backgroundColor: const Color(0xffF8F7F4),
       body: SafeArea(
           child: Padding(
-        padding: EdgeInsets.only(top: 150),
+        padding: const EdgeInsets.only(top: 150),
         child: Column(
           children: [
             Expanded(
