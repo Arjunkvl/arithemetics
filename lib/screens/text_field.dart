@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class BoxtextField extends StatelessWidget {
-  const BoxtextField({super.key});
+  final TextEditingController controller;
+  final FocusNode focusNode;
+  const BoxtextField(
+      {super.key, required this.controller, required this.focusNode});
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,13 @@ class BoxtextField extends StatelessWidget {
             enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.all(Radius.circular(15)),
                 borderSide: BorderSide(width: 5, color: Color(0xff745E4D)))),
+        focusNode: focusNode,
+        onChanged: (value) {
+          if (value.length == 1) {
+            FocusScope.of(context).nextFocus();
+          }
+        },
+        controller: controller,
       ),
     );
   }

@@ -1,6 +1,5 @@
 import 'package:arithemetics/screens/text_field.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -10,6 +9,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final List controller = [
+    TextEditingController(),
+    TextEditingController(),
+    TextEditingController(),
+  ];
+  final List focusnode = [
+    FocusNode(),
+    FocusNode(),
+    FocusNode(),
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,14 +51,23 @@ class _HomePageState extends State<HomePage> {
                   Padding(
                     padding: EdgeInsets.all(
                         MediaQuery.of(context).size.width * 0.05),
-                    child: const Center(
+                    child: Center(
                       child: Row(
                         mainAxisSize: MainAxisSize.max,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BoxtextField(),
-                          BoxtextField(),
-                          BoxtextField(),
+                          BoxtextField(
+                            controller: controller[0],
+                            focusNode: focusnode[0],
+                          ),
+                          BoxtextField(
+                            controller: controller[1],
+                            focusNode: focusnode[1],
+                          ),
+                          BoxtextField(
+                            controller: controller[2],
+                            focusNode: focusnode[2],
+                          ),
                         ],
                       ),
                     ),
