@@ -1,3 +1,4 @@
+import 'package:arithemetics/screens/details_screen.dart';
 import 'package:arithemetics/screens/text_field.dart';
 import 'package:flutter/material.dart';
 
@@ -79,7 +80,11 @@ class _HomePageState extends State<HomePage> {
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(40)),
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => const DetailsScreen(),
+                        ));
+                      },
                       color: const Color(0xff745E4D),
                       child: Padding(
                         padding: EdgeInsets.all(
