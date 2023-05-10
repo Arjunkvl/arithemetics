@@ -87,10 +87,7 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.all(Radius.circular(40)),
                       ),
                       onPressed: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) =>
-                              DetailsScreen(controller: controller),
-                        ));
+                        check(controller, context);
                       },
                       color: const Color(0xff745E4D),
                       child: Padding(
@@ -113,5 +110,37 @@ class _HomePageState extends State<HomePage> {
         ),
       )),
     );
+  }
+
+  check(controller, BuildContext context) {
+    double first = double.tryParse(controller[0].text) ?? 0;
+    double second = double.tryParse(controller[1].text) ?? 0;
+    double third = double.tryParse(controller[2].text) ?? 0;
+
+    if (second - first == third - second && controller[0].text != '') {
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => DetailsScreen(controller: controller)));
+    } else {
+      showDialog(
+          context: context,
+          builder: (context) {
+            return AlertDialog(
+              title: const Text(
+                'The Sequence is worng',
+                style: TextStyle(fontFamily: 'mono'),
+              ),
+              actions: [
+                TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                      for (int i = 0; i < controller.length; i++) {
+                        controller[i].clear();
+                      }
+                    },
+                    child: const Text('Enter Again'))
+              ],
+            );
+          });
+    }
   }
 }
