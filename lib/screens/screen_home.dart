@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> {
             return AlertDialog(
               title: const Text(
                 'The Sequence is worng',
-                style: TextStyle(fontFamily: 'mono'),
+                style: TextStyle(fontFamily: 'mono', color: Color(0xff5B4F47)),
               ),
               actions: [
                 TextButton(
@@ -137,7 +137,13 @@ class _HomePageState extends State<HomePage> {
                         controller[i].clear();
                       }
                     },
-                    child: const Text('Enter Again'))
+                    child: const Text(
+                      'Enter Again',
+                      style: TextStyle(
+                          fontFamily: 'mono',
+                          fontWeight: FontWeight.bold,
+                          color: Color(0xff745E4D)),
+                    ))
               ],
             );
           });
