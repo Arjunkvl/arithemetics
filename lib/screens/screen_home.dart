@@ -60,14 +60,20 @@ class _HomePageState extends State<HomePage> {
                           BoxtextField(
                             controller: controller[0],
                             focusNode: focusnode[0],
+                            done: () => FocusScope.of(context)
+                                .requestFocus(focusnode[1]),
                           ),
                           BoxtextField(
                             controller: controller[1],
                             focusNode: focusnode[1],
+                            done: () => FocusScope.of(context)
+                                .requestFocus(focusnode[2]),
                           ),
                           BoxtextField(
                             controller: controller[2],
                             focusNode: focusnode[2],
+                            done: () => FocusScope.of(context)
+                                .requestFocus(FocusNode()),
                           ),
                         ],
                       ),

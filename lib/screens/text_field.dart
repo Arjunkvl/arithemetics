@@ -4,8 +4,12 @@ import 'package:flutter/services.dart';
 class BoxtextField extends StatelessWidget {
   final TextEditingController controller;
   final FocusNode focusNode;
+  final Function done;
   const BoxtextField(
-      {super.key, required this.controller, required this.focusNode});
+      {super.key,
+      required this.controller,
+      required this.focusNode,
+      required this.done});
 
   @override
   Widget build(BuildContext context) {
@@ -13,9 +17,7 @@ class BoxtextField extends StatelessWidget {
       width: MediaQuery.of(context).size.width * 0.26,
       child: TextField(
         textAlign: TextAlign.center,
-        maxLength: 1,
         inputFormatters: [
-          LengthLimitingTextInputFormatter(1),
           FilteringTextInputFormatter.digitsOnly,
         ],
         showCursor: false,
@@ -32,11 +34,7 @@ class BoxtextField extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(15)),
                 borderSide: BorderSide(width: 5, color: Color(0xff745E4D)))),
         focusNode: focusNode,
-        onChanged: (value) {
-          if (value.length == 1) {
-            FocusScope.of(context).nextFocus();
-          }
-        },
+        onEditingComplete: () => done(),
         controller: controller,
       ),
     );
