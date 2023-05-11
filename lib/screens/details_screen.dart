@@ -12,9 +12,8 @@ class DetailsScreen extends StatefulWidget {
 }
 
 class _DetailsScreenState extends State<DetailsScreen> {
-  final TextEditingController term = TextEditingController();
+  TextEditingController term = TextEditingController();
   String text = '';
-  bool showText = false;
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +43,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
                 Button(
                     label: 'Calculate Sum',
-                    action: () => findTerm(context, term, showText)),
+                    action: () => findTerm(context, term)),
                 Button(
                   label: 'Find Terms',
-                  action: () => findTerm(context, term, showText),
+                  action: () => findTerm(context, term),
                 ),
               ],
             ),
@@ -57,7 +56,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
     );
   }
 
-  void findTerm(context, term, showText) {
+  void findTerm(context, term) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -88,7 +87,8 @@ class _DetailsScreenState extends State<DetailsScreen> {
                     ),
                     onSubmitted: (value) {
                       setState(() {
-                        text = 'The ${term.text} term is 4 ';
+                        text =
+                            'The ${term.text} term is ${thTerm(widget.controller, term)} ';
                       });
                     },
                     controller: term,
@@ -181,4 +181,14 @@ String sumEquation(controller) {
   exp.evaluate(EvaluationType.REAL, cm);
   Expression alge = p.parse('n/2 * ${controller[0].text} + n');
   return alge.toString().replaceAll(RegExp('[()]'), '');
+}
+
+String thTerm(controller, term) {
+  Parser p = Parser();
+  Expression exp = p.parse('${controller[1].text}-${controller[0].text}');
+  ContextModel cm = ContextModel();
+  double d = exp.evaluate(EvaluationType.REAL, cm);
+  Expression t = p.parse('$d * ${term.text}+${controller[0].text}-$d');
+  double r = t.evaluate(EvaluationType.REAL, cm);
+  return r.toString();
 }
