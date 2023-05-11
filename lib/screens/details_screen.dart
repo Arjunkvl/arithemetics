@@ -65,7 +65,7 @@ String sumEquation(controller) {
   Parser p = Parser();
   Expression exp = p.parse('${controller[1].text}-${controller[0].text}');
   ContextModel cm = ContextModel();
-  double d = exp.evaluate(EvaluationType.REAL, cm);
+  exp.evaluate(EvaluationType.REAL, cm);
   Expression alge = p.parse('n/2 * ${controller[0].text} + n');
   return alge.toString().replaceAll(RegExp('[()]'), '');
 }

@@ -31,7 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  
+  math_expressions: ^2.4.0
 
 dev_dependencies:
   flutter_lints: ^2.0.0
@@ -43,11 +43,9 @@ dev_dependencies:
 # The following section is specific to Flutter packages.
 flutter:
   fonts:
-    - family: mono     
+    - family: mono
       fonts:
-        - asset:  Fonts\RobotoMono-Light.ttf
-  
-
+        - asset: Fonts\RobotoMono-Light.ttf
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
