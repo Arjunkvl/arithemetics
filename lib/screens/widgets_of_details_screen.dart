@@ -44,8 +44,9 @@ class CustomText extends StatelessWidget {
 }
 
 class Button extends StatelessWidget {
+  final Function action;
   final String label;
-  const Button({super.key, required this.label});
+  const Button({super.key, required this.label, required this.action});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +57,7 @@ class Button extends StatelessWidget {
       child: MaterialButton(
         shape: const RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(25))),
-        onPressed: () {},
+        onPressed: () => action(),
         color: const Color(0xff745E4D),
         child: FittedBox(
           child: Padding(
